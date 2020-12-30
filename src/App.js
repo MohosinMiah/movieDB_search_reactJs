@@ -4,20 +4,29 @@ import './App.css';
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <table style={{ 
+            backgroundColor:'#000',
+            color:'white',
+            display:'block',
+
+            
+       }}>
+        <tr>
+          <td>
+            <img src="logo.png" width="150" height="100" />
+          </td >
+          <td width="20px">
+
+          </td>
+
+          <td>
+            <h1 
+               >MoviesDB Search</h1>
+
+          </td>
+        </tr>
+      </table>
+
     </div>
   );
 }
