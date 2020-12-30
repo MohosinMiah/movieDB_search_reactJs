@@ -2,6 +2,7 @@ import logo from './logo.svg';
 import './App.css';
 import React, { Component } from 'react';
 import MovieRow from './MovieRow';
+import HeaderBar from './HeaderBar';
 
 
 class App extends Component{
@@ -20,16 +21,7 @@ class App extends Component{
 
      movies.forEach(movie => {
 
-     const movie_row = <table key={movie.id}>
-                          <tbody>
-                            <tr>
-                              <td>
-                              <img src={movie.poster_src} alt="Movie Poster" width="300" height="450" />
-                              </td>
-                              <td>{movie.description}</td>
-                            </tr>
-                          </tbody>
-                    </table>
+     const movie_row = <MovieRow movie={movie}></MovieRow>
 
       movie_list.push(movie_row);
     });
@@ -45,42 +37,21 @@ class App extends Component{
     return (
       <div className="App">
 
-        <table className="titleBar">
-          <tr>
-            <td>
-              <img src="logo.png" alt="App Logo" width="150" height="100" />
-            </td>
-            <td width="20px">
-
-            </td>
-
-            <td>
-              <h1
-              >MoviesDB Search</h1>
-
-            </td>
-          </tr>
-        </table>
-
-
+        <HeaderBar></HeaderBar>
 
         <div className="search">
           <input className="search_input" id="input" type="text" placeholder="Search Your Favorites Movie" />
-
         </div>
-
 
 
 
         <div className="movie_list">
 
           <p>Hello Bangladesh. I am Mohosin Miah</p>
-          <MovieRow></MovieRow>
-       { this.state.rows }
+          
+          { this.state.rows }
  
         </div>
-
-
 
       </div>
     );
