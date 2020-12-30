@@ -7,6 +7,28 @@
   pointer-events: none;
 }
 
+/* Heading Bar Style  */
+.titleBar {
+
+  background-color: #282c34;  
+  color:white;
+  display:block;
+
+}
+
+/* Search Bar Style  */
+.search_input {
+
+  display: block;
+  font-size: 20px;
+  padding: 7px;
+  width: 99%;
+
+
+}
+
+
+
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;

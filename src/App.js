@@ -4,16 +4,11 @@ import './App.css';
 function App() {
   return (
     <div className="App">
-      <table style={{ 
-            backgroundColor:'#000',
-            color:'white',
-            display:'block',
-
-            
-       }}>
+      {/* Heading Bar Style Start  */}
+      <table className="titleBar">
         <tr>
           <td>
-            <img src="logo.png" width="150" height="100" />
+            <img src="logo.png" alt="App Logo" width="150" height="100" />
           </td >
           <td width="20px">
 
@@ -26,6 +21,12 @@ function App() {
           </td>
         </tr>
       </table>
+      {/* Heading Bar Style ENd  */}
+
+      <div className="search"> 
+      <input className="search_input" id="input" type="text" placeholder="Search Your Favorites Movie" />
+
+      </div>
 
     </div>
   );
