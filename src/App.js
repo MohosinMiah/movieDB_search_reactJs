@@ -3,7 +3,7 @@ import './App.css';
 import React, { Component } from 'react';
 import MovieRow from './MovieRow';
 import HeaderBar from './HeaderBar';
-import $ from 'jquery'
+import $, { event } from 'jquery'
 
 
 class App extends Component{
@@ -11,10 +11,15 @@ class App extends Component{
 
     constructor(props) {
       super(props);
-      this.performSearch()
+
+      this.performSearch('a')
 
 
       this.state = { }
+
+
+
+      
   //  const movies = [
   //   {id:1,  poster_src: 'logo.png', title:'Title 1',description:'React doesn’t force you to use the ES6 class syntax. If you prefer to avoid it, you may use the create-react-class module or a similar custom abstraction instead. Take a look at Using React without ES6 to learn more.'},
   //   {id:2,  poster_src: 'logo.png', title:'Title 2',description:'React doesn’t force you to use the ES6 class syntax. If you prefer to avoid it, you may use the create-react-class module or a similar custom abstraction instead. Take a look at Using React without ES6 to learn more.'},
@@ -37,14 +42,15 @@ class App extends Component{
 
     }
 
-    performSearch(){
 
-      const stringUrl = 'https://api.themoviedb.org/3/search/movie?api_key=bbb5a6cb242ee96a5e2c751603173b64&language=en-US&query=a&page=1&include_adult=true'
+    performSearch(searchTerm){
+
+      const stringUrl = 'https://api.themoviedb.org/3/search/movie?api_key=bbb5a6cb242ee96a5e2c751603173b64&language=en-US&page=1&include_adult=true&query='+searchTerm
       $.ajax({
         url : stringUrl,
         success: (searchResults) => {
             console.log(searchResults)
-            
+
             const results = searchResults.results
             console.log(results)
            var movie_list = []
@@ -64,12 +70,19 @@ class App extends Component{
             
         },
         error: (xhr,status,err)=> {
-            console.err("Fail To Fetch Error")
+            console.error("Fail To Fetch Error")
+
         }
 
       })
       console.log("Perform Search");
     }
+
+    searchChangeHandler(event){
+      this.performSearch(event.target.value)
+     // console.log(event.target.value)
+
+   }
 
  render() {
     return (
@@ -78,7 +91,7 @@ class App extends Component{
         <HeaderBar></HeaderBar>
 
         <div className="search">
-          <input className="search_input" id="input" type="text" placeholder="Search Your Favorites Movie" />
+          <input className="search_input" id="input" name="searchValue" type="text" onChange={this.searchChangeHandler.bind(this)} placeholder="Search Your Favorites Movie" />
         </div>
 
 

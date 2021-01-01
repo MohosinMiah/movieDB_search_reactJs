@@ -14,9 +14,10 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 The page will reload if you make edits.\
 You will also see any lint errors in the console.
 
-### 'Demo Application'
+### `Application Demo`
 
-<img src="https://github.com/mohosin16103308/movieDB_search_reactJs/blob/main/Movie%20Search_1.jpg" alt="Movie Poster" />
+<img src="https://github.com/mohosin16103308/movieDB_search_reactJs/blob/main/movidbsearch_full_demo.gif" alt="MovieDb Search Full Demo" />
+<img src="https://github.com/mohosin16103308/movieDB_search_reactJs/blob/main/Movie%20Search_1.jpg" alt="MovieDb Demo" />
 
 ### `npm test`
 

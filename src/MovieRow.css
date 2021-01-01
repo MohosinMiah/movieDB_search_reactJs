@@ -24,3 +24,9 @@
   border: 1px solid red;
 }
 
+.view_movie {
+  padding: 10px;
+  cursor: grab;
+  font-size: 20px;
+}
+
