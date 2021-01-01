@@ -3,6 +3,7 @@ import './App.css';
 import React, { Component } from 'react';
 import MovieRow from './MovieRow';
 import HeaderBar from './HeaderBar';
+import $ from 'jquery'
 
 
 class App extends Component{
@@ -10,29 +11,66 @@ class App extends Component{
 
     constructor(props) {
       super(props);
+      this.performSearch()
 
-   const movies = [
-    {id:1,  poster_src: 'logo.png', title:'Title 1',description:'React doesn’t force you to use the ES6 class syntax. If you prefer to avoid it, you may use the create-react-class module or a similar custom abstraction instead. Take a look at Using React without ES6 to learn more.'},
-    {id:2,  poster_src: 'logo.png', title:'Title 2',description:'React doesn’t force you to use the ES6 class syntax. If you prefer to avoid it, you may use the create-react-class module or a similar custom abstraction instead. Take a look at Using React without ES6 to learn more.'},
-    {id:3,  poster_src: 'logo.png', title:'Title 3',description:'React doesn’t force you to use the ES6 class syntax. If you prefer to avoid it, you may use the create-react-class module or a similar custom abstraction instead. React doesn’t force you to use the ES6 class syntax. If you prefer to avoid it, you may use the create-react-class module or a similar custom abstraction instead. Take a look at Using React without ES6 to learn more.React doesn’t force you to use the ES6 class syntax. If you prefer to avoid it, you may use the create-react-class module or a similar custom abstraction instead. Take a look at Using React without ES6 to learn more.Take a look at Using React without ES6 to learn more.'},
-  ]
+
+      this.state = { }
+  //  const movies = [
+  //   {id:1,  poster_src: 'logo.png', title:'Title 1',description:'React doesn’t force you to use the ES6 class syntax. If you prefer to avoid it, you may use the create-react-class module or a similar custom abstraction instead. Take a look at Using React without ES6 to learn more.'},
+  //   {id:2,  poster_src: 'logo.png', title:'Title 2',description:'React doesn’t force you to use the ES6 class syntax. If you prefer to avoid it, you may use the create-react-class module or a similar custom abstraction instead. Take a look at Using React without ES6 to learn more.'},
+  //   {id:3,  poster_src: 'logo.png', title:'Title 3',description:'React doesn’t force you to use the ES6 class syntax. If you prefer to avoid it, you may use the create-react-class module or a similar custom abstraction instead. React doesn’t force you to use the ES6 class syntax. If you prefer to avoid it, you may use the create-react-class module or a similar custom abstraction instead. Take a look at Using React without ES6 to learn more.React doesn’t force you to use the ES6 class syntax. If you prefer to avoid it, you may use the create-react-class module or a similar custom abstraction instead. Take a look at Using React without ES6 to learn more.Take a look at Using React without ES6 to learn more.'},
+  // ]
   
-     var movie_list = []
+    //  var movie_list = []
 
-     movies.forEach(movie => {
+    //  results.forEach(movie => {
 
-     const movie_row = <MovieRow movie={movie}></MovieRow>
+    //  const movie_row = <MovieRow movie={movie}></MovieRow>
 
-      movie_list.push(movie_row);
-    });
+    //   movie_list.push(movie_row);
+    // });
 
-     this.state = {
-      rows :  movie_list
-     }
+    //  this.state = {
+    //   rows :  movie_list
+    //  }
 
-    
 
     }
+
+    performSearch(){
+
+      const stringUrl = 'https://api.themoviedb.org/3/search/movie?api_key=bbb5a6cb242ee96a5e2c751603173b64&language=en-US&query=a&page=1&include_adult=true'
+      $.ajax({
+        url : stringUrl,
+        success: (searchResults) => {
+            console.log(searchResults)
+            
+            const results = searchResults.results
+            console.log(results)
+           var movie_list = []
+
+          results.forEach(movie => {
+
+          const movie_row = <MovieRow movie={movie}></MovieRow>
+
+            movie_list.push(movie_row);
+
+                  });
+
+          this.setState( {
+            rows :  movie_list
+          })
+
+            
+        },
+        error: (xhr,status,err)=> {
+            console.err("Fail To Fetch Error")
+        }
+
+      })
+      console.log("Perform Search");
+    }
+
  render() {
     return (
       <div className="App">
@@ -46,8 +84,6 @@ class App extends Component{
 
 
         <div className="movie_list">
-
-          <p>Hello Bangladesh. I am Mohosin Miah</p>
           
           { this.state.rows }
  

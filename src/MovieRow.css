@@ -1,0 +1,26 @@
+.movie_list_2 {
+  width: 1500px;
+  padding: 15px;
+  margin-bottom: 10px;
+  background-color: rgb(201, 221, 238);
+}
+
+.movie_list_1 {
+  width: 1500px;
+  padding: 15px;
+  margin-bottom: 10px;
+  background-color: rgb(187, 207, 131);
+}
+
+.movie_title{
+  float: left;
+ display: block;
+ display: contents;
+}
+
+.movie_overview {
+  text-align: justify;
+  padding: 10px;
+  border: 1px solid red;
+}
+
