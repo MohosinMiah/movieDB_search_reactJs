@@ -16,7 +16,7 @@ You will also see any lint errors in the console.
 
 ### 'Demo Application'
 
-<img src="movie_search\Movie Search_1.jpg" alt="Movie Poster" />
+<img src="https://github.com/mohosin16103308/movieDB_search_reactJs/blob/main/Movie%20Search_1.jpg" alt="Movie Poster" />
 
 ### `npm test`
 
